@@ -1,0 +1,39 @@
+.card-group{
+    height:90px;
+    display: block;
+    margin:0 auto 10px auto;
+    width:fit-content;
+    .card{
+        width: 250px;
+        display: block;
+        float:left;
+        margin:0 20px;
+        cursor: pointer;
+    }
+    .analisar{
+        width: 250px;
+        margin-bottom:10px;
+    }
+    .card .info-box{
+        transition: opacity .3s;
+    }
+    .card .info-box:hover{
+        opacity: .5;
+    }
+}
+.clear{
+    clear: both;
+}
+.info-box {
+    span i{
+        font-size:60px;
+        margin-top:15px;
+        padding:0;
+    }
+    .info-box-content{
+        .info-box-number{
+            font-size:40px;
+        }
+    }
+}
+
