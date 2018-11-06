@@ -1,10 +1,11 @@
-<div class="card-group" *ngFor="let m of metrics">
+<!-- <div class="card-group" *ngFor="let m of metrics"> -->
+  <div class="card-group">
   <div class="card" (click)="changeView('aguardando')">
     <div class="info-box bg-{{aguardando}}">
       <span class="info-box-icon"><i class="material-icons">query_builder</i></span>
       <div class="info-box-content">
         <span class="info-box-text">AGUARDANDO</span>
-        <span class="info-box-number">{{m.aguardando}}</span>
+        <span class="info-box-number">0</span>
       </div>
     </div>
   </div>
@@ -13,7 +14,7 @@
       <span class="info-box-icon"><i class="material-icons">done</i></span>
       <div class="info-box-content">
         <span class="info-box-text">DISPONÍVEIS</span>
-        <span class="info-box-number">{{m.disponiveis}}</span>
+        <span class="info-box-number">{{qtdDisponiveis}}</span>
       </div>
     </div>
     <div><button class="btn btn-success btn-lg analisar">Analizando proposta - 01:25</button></div>
@@ -23,7 +24,7 @@
       <span class="info-box-icon"><i class="material-icons">cached</i></span>
       <div class="info-box-content">
         <span class="info-box-text">EM ANÁLISE</span>
-        <span class="info-box-number">{{m.analise}}</span>
+        <span class="info-box-number">0</span>
       </div>
     </div>
   </div>
@@ -32,7 +33,7 @@
       <span class="info-box-icon"><i class="material-icons">gavel</i></span>
       <div class="info-box-content">
         <span class="info-box-text">FINALIZADO</span>
-        <span class="info-box-number">{{m.finalizado}}</span>
+        <span class="info-box-number">0</span>
       </div>
     </div>
   </div>  
@@ -43,19 +44,11 @@
   <div class="box-body">
     <table class="table table-striped table-hover">
       <thead>
-        <th class="text-center">Cooperativa</th>
-        <th class="text-center">Conta</th>
-        <th class="text-center">Cliente</th>
-        <th class="text-center">Proposta</th>
-        <th class="text-center">Data</th>
+        <th class="text-center" *ngFor="let h of headerData">{{h}}</th>
       </thead>
       <tbody>
         <tr *ngFor="let d of pageData">
-          <td>{{d.cooperativa}}</td>
-          <td class="text-center">{{d.conta}}</td>
-          <td>{{d.cliente}}</td>
-          <td class="text-center">{{d.proposta}}</td>
-          <td class="text-center">{{d.data}}</td>
+          <td *ngFor="let d2 of d">{{d2}}</td>
         </tr>
       </tbody>
     </table>

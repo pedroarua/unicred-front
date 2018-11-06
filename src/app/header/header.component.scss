@@ -3,3 +3,35 @@
         width:80%;
     }
 }
+nav.navbar-cda{
+    background-color: #f8f8f8!important;
+    height:auto!important;
+    border-color:#e7e7e7!important;
+    padding:0;
+
+    ul{
+        width: 100%;
+        margin: 0!important;
+        padding: 0!important;
+        li.active{
+            background-color:#E7E7E7!important;
+        }
+        li{
+            float: left !important;            
+            display: block!important;
+            padding: 15px!important;
+            a{
+                color: #777!important;
+                text-transform: uppercase!important;
+                font-size: 12px!important;
+                font-weight: bold!important;
+            }
+            ul.dropdown-menu{
+                width:250px!important;
+                li{
+                    width:auto!important;
+                }
+            }
+        }
+    }
+}

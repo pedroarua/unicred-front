@@ -6,9 +6,10 @@
   </a>
   
   <nav class="navbar navbar-static-top">
-    <a href="#" class="sidebar-toggle" data-toggle="push-menu" *ngIf="admin" role="button">
+    <!-- <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
       <span class="sr-only">Toggle navigation</span>
-    </a>
+    </a> -->
+    <a class=""></a>
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
         <li>
@@ -16,6 +17,36 @@
         </li>
       </ul>
     </div>
-    
   </nav>
 </header>
+<nav class="navbar navbar-default navbar-cda">
+  <ul class="">
+    <li>
+      <a href="/cda/">Controle agência</a>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Provisões &amp; Movimentos<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="/cda/coaf/novo">
+          <span class="fa fa-plus"></span>Cadastrar provisão</a>
+        </li>
+        <li>
+          <a href="/cda/coaf/sim/novo">
+            <span class="fa fa-plus"></span>Informar Movimento "SIM"
+          </a>
+        </li>
+        <li>
+          <a href="/cda/coaf/">
+            Provisões &amp; Movimentos
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="">
+      <a href="/recred/">Recred</a>
+    </li>
+    <li class="active">
+      <a href="/gac/">Gestão de créditos</a>
+    </li>
+  </ul>
+</nav>

@@ -25,7 +25,9 @@ export interface Metrics {
 export class GacHomeComponent implements OnInit {
 
   pageData: any;
+  headerData: any;
   metrics: any;
+  qtdDisponiveis: number;
   showAnalysis = false;
 
   aguardando = 'orange';
@@ -39,22 +41,33 @@ export class GacHomeComponent implements OnInit {
   * changeMetrics
   */
   public changeMetrics() {
-    this.http.get(`http://localhost:4200/assets/json_examples/gac/home/metricas.json`)
+    this.http.get(`http://localhost:8000/gac/json/disponiveis/count`)
     .subscribe(data => {
-      this.metrics = data;
+      this.qtdDisponiveis = data.qtd;
     });
+    setTimeout(() => {
+      this.changeMetrics();
+    }, 5000);
   }
 
   /**
   * changeView
   */
   public changeView(page: string) {
-    this.changeMetrics();
-
     this.aguardando = 'gray';
     this.disponiveis = this.aguardando;
     this.analise = this.disponiveis;
     this.finalizado = this.analise;
+
+    this.http.get(`http://localhost:8000/gac/json/disponiveis/header`)
+    .subscribe(data => {
+      this.headerData = data;
+    });
+
+    this.http.get(`http://localhost:8000/gac/json/disponiveis/body`)
+    .subscribe(data => {
+      this.pageData = data;
+    });
 
     if (page === 'aguardando') {
       this.showAnalysis = false;
@@ -72,14 +85,11 @@ export class GacHomeComponent implements OnInit {
       this.showAnalysis = false;
       this.finalizado = 'green';
     }
-
-    this.http.get(`http://localhost:4200/assets/json_examples/gac/home/${page}.json`)
-    .subscribe(data => {
-      this.pageData = data;
-    });
   }
 
   ngOnInit() {
+    this.qtdDisponiveis = 0;
+    this.changeMetrics();
     this.changeView('disponiveis');
   }
 
